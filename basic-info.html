@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finpository</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm justify-content-between custom-nav fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="d-flex align-middle">
+                <div class="toggle me-2" id="toggleside" data-step="2"
+                    data-intro="You now have the option to expand or collapse the menu based on your convenience.">
+                    <i class="bi bi-list"></i>
+                </div>
+                <a class="navbar-brand ps-0" routerLink="home">
+                    <h2>FINPOSITORY</h2>
+                </a>
+            </div>
+            <ul class="navbar-nav custom-nav-list">
+                <li class="nav-item">
+                    <a id="toggle" class="nav-link fancy-button zoom toggle-mode mode-change">
+                        <input class="normal-icon mode-icon" type="checkbox">
+                        <div class="background"></div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fancy-button zoom">
+                        <i class="bi bi-house icon icon-left"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fancy-button zoom"><i class="bi bi-book icon icon-left"></i>
+                        All Orders
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link fancy-button zoom" href="#" role="button" data-bs-toggle="dropdown"><i
+                            class="bi bi-person icon-left"></i>
+                        Hi,Urmi <i class="bi bi-chevron-down me-0"></i></a>
+                    <ul class="dropdown-menu custom-dropdown dropdown_animation profile-dropdown">
+                        <div class="profile-header">
+                            <div>
+                                <div class="user-icon">
+                                    UG
+                                </div>
+                                <div class="user-info">
+                                    <span class="userName">Urmi Gajjar</span>
+                                    <span class="userMail">urmi.gajjar@corporation.com </span>
+                                </div>
+                            </div>
+                            <div>
+                                <a routerLink="UserProfile"><i class="bi bi-pencil-square"></i></a>
+                            </div>
+                        </div>
+
+                        <li><a class="dropdown-item" routerLink="companyView"><i class="bi bi-eye"></i> Companies
+                                Viewed (44)</a>
+                        </li>
+                        <li><a class="dropdown-item history-toggle" data-bs-toggle="offcanvas"
+                                href="#recently-history"><i class="bi bi-eye icon"></i> Recently Visited</a></li>
+                        <li><a class="dropdown-item" routerLink="settings"><i class="bi bi-gear"></i>
+                                <span>settings</span></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-envelope"></i> <span>contact us</span></a>
+                        <li><a class="dropdown-item" routerLink="feedback"><i class="bi bi-chat-dots"></i>
+                                <span>feedback</span></a></li>
+                        <!-- <li>
+                            <a class="dropdown-item" href="#downloadfiles" data-bs-toggle="offcanvas"><i
+                                    class="bi bi-download"></i>
+                                <span>Download Files</span></a>
+                        </li> -->
+                        <li>
+                            <a class="dropdown-item mode-change"><i class="bi bi-brightness-high"></i>
+                                <span>Dark Mode</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-shield-check"></i> <span>privacy
+                                    policy</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-text"></i> <span>terms and
+                                    conditions</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-layers"></i> <span>about us</span></a>
+                        </li>
+                        <!-- <li><a class="dropdown-item" routerLink="404"><span>404</span></a></li>
+                        <li><a class="dropdown-item" routerLink="MyOrder"><span>My order</span></a></li>
+                        <li><a class="dropdown-item" routerLink="Mycart"><span>My Cart</span></a></li> -->
+                        <div class="dropdown-footer">
+                            <button class="btn btn-secondary-outline m-0 w-100">Sign Out</button>
+                        </div>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- nevbar end here -->
+    <!-- sidebar start here -->
+    <nav class="sidebar close">
+        <div class="sidebar-inner">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <li class="nab-list">
+                    <a href="#" class="nav-link active">
+                        <span class="text nav-text">basic info</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a href="itr-consent.html" class="nav-link">
+                        <span class="text">ITR Consent</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a href="#" class="nav-link">
+                        <span class="text nav-text">GST - Consent</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a href="#" class="nav-link">
+                        <span class="text">GST - Upload</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a href="#" class="nav-link">
+                        <span class="text nav-text">Banking - Upload</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a href="#" class="nav-link">
+                        <span class="text">Bureau - Integration</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a href="#" class="nav-link">
+                        <span class="text nav-text">Bureau - Upload</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a href="#" class="nav-link">
+                        <span class="text">Preview</span>
+                    </a>
+                </li>
+
+
+            </div>
+    </nav>
+    <!-- sidebar end here -->
+    <div class="secondary-header" id="secondary-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb custom-breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Summary</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">New Request</li>
+                        </ol>
+                    </nav>
+                    <div class="inner-content">
+                        <div class="text-start">
+                            <div class="company-name">
+
+                                <h3>Krishtech Technologies</h3>
+                                <small class="badge badge-neutral">QWERT0129Y</small>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <button class="btn btn-link btn-sm"><i class="bi bi-arrow-left-short"></i>back</button>
+                            <button class="btn btn-link btn-sm" onclick="location.href='itr-consent.html'">skip<i
+                                    class="bi bi-arrow-right-short me-0 ms-1"></i></button>
+
+                            <button class="btn btn-primary btn-sm" onclick="location.href='itr-consent.html'">save &
+                                next</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper m-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <h5>Lender Info</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="custom-form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Lender Reference Number*</label>
+                                            <input type="text" name="" id="" class="form-control pe-2"
+                                                value="1029384756" placeholder="Enter reference number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Division*</label>
+                                            <select name="" id="" class="form-select">
+                                                <option value="">select</option>
+                                                <option value="" selected>Gujrat</option>
+                                                <option value="">Maharashtra</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Branch*</label>
+                                            <select name="" id="" class="form-select">
+                                                <option value="">select</option>
+                                                <option value="" selected>Ahmedabad</option>
+                                                <option value="">Delhi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Extraction By*</label>
+                                            <select name="" id="" class="form-select">
+                                                <option value="">select</option>
+                                                <option value="" selected>CSR Assisted</option>
+                                                <option value="">KSR Assisted</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <h5>Applicant Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="custom-form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="pan" class="form-label">PAN*</label>
+                                            <input type="text" id="pan" class="form-control pe-2"
+                                                placeholder="Enter PAN" value="QWERT0129Y" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="name" class="form-label">Name*</label>
+                                            <input type="text" value="Krishtech Technologies" placeholder="enter name"
+                                                class="form-control pe-2" id="name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="mail" class="form-label">Email*</label>
+                                            <input type="email" value="ishir.shah@corpository.com" name=""
+                                                placeholder="enter email" class="form-control pe-2 is-invalid"
+                                                id="mail">
+                                            <span class="error-msg">Please enter a valid Email ID</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="mobile" class="form-label">Mobile Number*</label>
+                                            <input type="number" value="9876543210" name=""
+                                                placeholder="enter mobile number" class="form-control pe-2" id="mobile">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="doi" class="form-label">Date of Incorporation / Birth*</label>
+                                            <input type="date" value="10/09/1993" placeholder="enter date"
+                                                class="form-control pe-2" id="doi">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="fatherName" class="form-label">Father Name</label>
+                                            <input type="text" value="suresh kumar" placeholder="enter father name"
+                                                class="form-control pe-2" id="fatherName">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="applLang" class="form-label">Applicant Language*</label>
+                                            <select name="" id="applLang" class="form-select">
+                                                <option value="">select</option>
+                                                <option value="" selected>Hindi</option>
+                                                <option value="">English</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="address" class="form-label">Address*</label>
+                                            <textarea id="address" class="form-control"
+                                                rows="1">Corpository, Office No 2001 to 2020, 20th Floor, B Block, Daskroi Ahmedabad Gujarat 380058 India.</textarea>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card custom-card gap-0">
+                        <div class="card-header border-bottom-0 d-flex justify-content-between align-items-center">
+                            <h5>Applicant’s Management / CA / Lawyer’s Contact Details</h5>
+                            <div class="header-right-content">
+                                <span>Add up to 3</span>
+                                <button class="btn btn-sm btn-secondary-outline my-0" onclick="addRow()"><i
+                                        class="bi bi-plus"></i>add</button>
+                            </div>
+                        </div>
+                        <div class="card-body border-top pt-3">
+                            <div class="custom-form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Name</label>
+                                            <input type="text" class="form-control pe-2" value="Krunal & Associates"
+                                                placeholder="enter name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Email</label>
+                                            <input type="text" class="form-control pe-2"
+                                                value="krunal.associates@maile.com" placeholder="enter email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Mobile Number</label>
+                                            <input type="text" class="form-control pe-2" value="98798 98798"
+                                                placeholder="enter mobile number">
+                                        </div>
+                                    </div>
+                                    <div class="align-items-center col-md-3 d-flex justify-content-end text-end">
+                                        <div>
+                                            <button class="btn btn-sm btn-secondary-outline m-0"><i
+                                                    class="bi bi-trash m-0"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row d-none" id="newRow">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Name</label>
+                                            <input type="text" class="form-control pe-2" value="ishir & Associates"
+                                                placeholder="enter name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Email</label>
+                                            <input type="text" class="form-control pe-2"
+                                                value="ishir.associates@maile.com" placeholder="enter email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="" class="form-label">Mobile Number</label>
+                                            <input type="text" class="form-control pe-2" value="98798 98798"
+                                                placeholder="enter mobile number">
+                                        </div>
+                                    </div>
+                                    <div class="align-items-center col-md-3 d-flex justify-content-end text-end">
+                                        <div>
+                                            <button class="btn btn-sm btn-secondary-outline m-0"><i
+                                                    class="bi bi-trash m-0"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card custom-card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5>Additional Contacts</h5>
+                            <div class="header-right-content">
+                                <span>Enter up to 50 unique internal Emails. These emails will be used in Email CC
+                                    section</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="custom-form">
+                                <div class="form-group">
+                                    <label for="" class="form-label">Email CC</label>
+                                    <input type="text" placeholder="Enter emails"
+                                        value="ishir.shah@corpository.com, kruna.patel@corpository.com"
+                                        data-role="tagsinput" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="form-label">Mobile Numbers</label>
+                                    <input type="text" data-role="tagsinput" class="form-control"
+                                        value="9876543210, 1234567890" placeholder="Enter Mobile number">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- footer start here -->
+    <footer class="footer text-white m-left" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6"><span>© 2023 FinFort InfoTech LLP. All rights reserved.</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 ">
+                    <ul class="nav justify-content-end">
+                        <li><a href="#">Help / FAQ</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end here -->
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap-tagsinput.js"></script>
+    <script>
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function () {
+
+            var currentScrollPos = window.pageYOffset;
+            if (currentScrollPos > 50) {
+                $('#secondary-header').css('top', '-200px')
+            } else {
+                $('#secondary-header').css('top', '58px')
+
+            }
+            prevScrollpos = currentScrollPos;
+        }
+
+        $(document).ready(function () {
+
+            var secondaryHeader = document.getElementById("secondary-header");
+            var navbar = document.getElementById("navbar");
+            var footer = document.getElementById('footer')
+
+            var navbarheight = navbar.clientHeight;
+            var secondaryHeaderheight = secondaryHeader.clientHeight;
+            var footerheight = footer.clientHeight
+            $('.wrapper').css('margin-top', (secondaryHeaderheight + navbarheight + 16 + 'px'));
+            if (secondaryHeader) {
+                $('.wrapper').css('min-height', 'calc(100vh - ' + (secondaryHeaderheight + navbarheight + footerheight + 16) + 'px)');
+            }
+
+
+            // sidebar collapse js and wrapper animation
+            $("#toggleside").click(function () {
+                $(".sidebar").toggleClass("close");
+                // $("#toggleside").toggleClass("change");
+                $(".wrapper, .footer").toggleClass("m-left");
+                $("#secondary-header").toggleClass("sh-left");
+                // $("#update-msg").toggleClass("sh-left");
+            });
+        })
+        function addRow() {
+            $("#newRow").removeClass("d-none")
+
+        }
+    </script>
+</body>
+
+</html>
