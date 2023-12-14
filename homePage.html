@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finpository</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-sm justify-content-between custom-nav">
+    <div class="container-fluid">
+      <div class="d-flex align-middle">
+        <a class="navbar-brand ps-0" routerLink="home">
+          <h2>FINPOSITORY</h2>
+        </a>
+      </div>
+      <ul class="navbar-nav custom-nav-list">
+        <li class="nav-item">
+          <a id="toggle" class="nav-link fancy-button zoom toggle-mode mode-change">
+            <input class="normal-icon mode-icon" type="checkbox">
+            <div class="background"></div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fancy-button zoom">
+            <i class="bi bi-house icon icon-left"></i>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fancy-button zoom"><i class="bi bi-book icon icon-left"></i>
+            All Orders
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link fancy-button zoom" href="#" role="button" data-bs-toggle="dropdown"><i
+              class="bi bi-person icon-left"></i>
+            Hi,Urmi <i class="bi bi-chevron-down"></i></a>
+          <ul class="dropdown-menu custom-dropdown dropdown_animation profile-dropdown">
+            <div class="profile-header">
+              <div>
+                <div class="user-icon">
+                  UG
+                </div>
+                <div class="user-info">
+                  <span class="userName">Urmi Gajjar</span>
+                  <span class="userMail">urmi.gajjar@corporation.com </span>
+                </div>
+              </div>
+              <div>
+                <a routerLink="UserProfile"><i class="bi bi-pencil-square"></i></a>
+              </div>
+            </div>
+
+            <li><a class="dropdown-item" routerLink="companyView"><i class="bi bi-eye"></i> Companies
+                Viewed (44)</a>
+            </li>
+            <li><a class="dropdown-item history-toggle" data-bs-toggle="offcanvas" href="#recently-history"><i
+                  class="bi bi-eye icon"></i> Recently Visited</a></li>
+            <li><a class="dropdown-item" routerLink="settings"><i class="bi bi-gear"></i>
+                <span>settings</span></a>
+            </li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-envelope"></i> <span>contact us</span></a>
+            <li><a class="dropdown-item" routerLink="feedback"><i class="bi bi-chat-dots"></i>
+                <span>feedback</span></a></li>
+            <!-- <li>
+                            <a class="dropdown-item" href="#downloadfiles" data-bs-toggle="offcanvas"><i
+                                    class="bi bi-download"></i>
+                                <span>Download Files</span></a>
+                        </li> -->
+            <li>
+              <a class="dropdown-item mode-change"><i class="bi bi-brightness-high"></i>
+                <span>Dark Mode</span></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-shield-check"></i> <span>privacy
+                  policy</span></a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-file-text"></i> <span>terms and
+                  conditions</span></a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-layers"></i> <span>about us</span></a>
+            </li>
+            <!-- <li><a class="dropdown-item" routerLink="404"><span>404</span></a></li>
+                        <li><a class="dropdown-item" routerLink="MyOrder"><span>My order</span></a></li>
+                        <li><a class="dropdown-item" routerLink="Mycart"><span>My Cart</span></a></li> -->
+            <div class="dropdown-footer">
+              <button class="btn btn-secondary-outline m-0 w-100">Sign Out</button>
+            </div>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- nevbar end here -->
+  <div class="container home-page-container">
+    <div class="row">
+      <div class="col-md-12 my-3">
+        <div class="search-nav-block">
+          <div class="window-bar">
+            <h1 class="d-inline">A Revolution In Credit Evaluation </h1>
+            <div class="custom-search-block">
+              <div class="input-group custom-search">
+                <input type="text" id="empSearch" autocomplete="off" class="form-control" oninput="myFunc(this.value)"
+                  placeholder="Search a Name, PAN or DIN">
+                <span class="company-refresh d-none"><i class="bi bi-arrow-repeat"></i></span>
+                <button type="button" class="btn btn-primary m-0 rounded-0"
+                  onclick="location.href='serach-result.html'"><i class="bi bi-search"></i><span
+                    class="text-hidden-mobile">Search</span></button>
+              </div>
+              <div class="search-dropdown card custom-card d-none" id="search-dropdown">
+                <div class="card-body p-0">
+                  <div class="simple-list-group">
+                    <div class="simple-list-item">
+                      <div class="media-body">
+                        <a routerLink="/front/companyProfile">Hubtown Limited </a>
+                        <div class="simple-list-sub-text">
+                          <span><i class="bi bi-geo-alt"></i></span>
+                          <span>Mumbai,
+                            MAHARASHTRA</span>
+                        </div>
+                        <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                      </div>
+                      <div class="media-right">
+                        <span class="badge badge-success">Active</span>
+                      </div>
+
+                    </div>
+                    <div class="simple-list-item">
+                      <div class="media-body">
+                        <a routerLink="/front/companyProfile">Reliance industries private limited </a>
+                        <div class="simple-list-sub-text">
+                          <span><i class="bi bi-geo-alt"></i></span>
+                          <span>Mumbai,
+                            MAHARASHTRA</span>
+                        </div>
+                        <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                      </div>
+                      <div class="media-right">
+                        <span class="badge badge-success">Active</span>
+                      </div>
+
+                    </div>
+                    <div class="simple-list-item">
+                      <div class="media-body">
+                        <a routerLink="/front/companyProfile">Bluevine Technologies pvt. ltd</a>
+                        <div class="simple-list-sub-text">
+                          <span><i class="bi bi-geo-alt"></i></span>
+                          <span>Ahmedabad,
+                            Gujrat</span>
+                        </div>
+                        <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                      </div>
+                      <div class="media-right">
+                        <span class="badge badge-success">Active</span>
+                      </div>
+
+                    </div>
+                    <div class="simple-list-item">
+                      <div class="media-body">
+                        <a routerLink="/front/companyProfile">Shaz Packaging Llp </a>
+                        <div class="simple-list-sub-text">
+                          <span><i class="bi bi-geo-alt"></i></span>
+                          <span>Ahmedabad,
+                            Gujrat</span>
+                        </div>
+                        <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+
+                      </div>
+                      <div class="media-right">
+                        <span class="badge badge-danger">Strike
+                          Off</span>
+                      </div>
+
+                    </div>
+                    <div class="simple-list-item">
+                      <div class="media-body">
+                        <a routerLink="/front/companyProfile">Rcc Limited</a>
+                        <div class="simple-list-sub-text">
+                          <span><i class="bi bi-geo-alt"></i></span>
+                          <span>Ahmedabad,
+                            Gujrat</span>
+                        </div>
+                        <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+
+                      </div>
+                      <div class="media-right">
+                        <span class="badge badge-danger">Strike
+                          Off</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 d-flex align-items-stretch">
+        <div class="card custom-card w-100">
+          <div data-bs-target="#demo1" aria-expanded="false" class="card-header collapse-head">
+            <h5>Recently Visited</h5>
+          </div>
+          <div id="demo1" class="card-body collapse-body recent-visit-tabs-bar">
+            <div class="simple-list-group">
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Hubtown Limited</a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-danger">Strike-off</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Ankur Advisory Services LlP</a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-success">active</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Martin And Harris Laboratories Limited</a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-danger">strike-off</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Weight Farmer Producer Company Limited</a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-success">active</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Hubtown Limited</a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-success">Active</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Bluevine Technologies Private Limited</a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+
+                <div class="media-right">
+                  <span class="badge badge-success">Active</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Tata Sons Private LimiteD </a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-success">Active</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Tata Sons Private LimiteD </a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-success">Active</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Tata Sons Private LimiteD </a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-success">Active</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Tata Sons Private LimiteD </a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-success">Active</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Tata Sons Private LimiteD </a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-danger">strike-off</span>
+                </div>
+              </div>
+              <div class="simple-list-item">
+                <div class="media-body">
+                  <a href="/front/companyProfile">Tata Sons Private LimiteD </a>
+                  <div class="simple-list-sub-text">
+                    <span>
+                      <i class="bi bi-geo-alt"></i>
+                    </span>
+                    <span>Mumbai, MAHARASHTRA</span>
+                  </div>
+                  <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                </div>
+                <div class="media-right">
+                  <span class="badge badge-success">Active</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="nodata" class="text-center d-none" style="margin-top: 6rem;">
+              <img src="images/No-data-img.svg" alt="" class="img-fluid mx-auto d-block mt-3">
+              <p class="mt-3">All of your recent search & placed requests will appear here.</p>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-stretch">
+        <div class="card custom-card w-100">
+          <div data-bs-target="#demo2" aria-expanded="true" class="card-header collapse-head">
+            <h5>Explore Other Products</h5>
+          </div>
+          <div id="demo2" class="card-body pb-0 collapse-body show">
+            <div id="scrollbar" class="row exp-scroll">
+              <div class="col-lg-6 col-md-12 d-flex align-items-stretch">
+                <div class="card custom-card card-border-teal">
+                  <div class="card-body pt-3">
+                    <div class="product-inner-bar">
+                      <div class="p-inner-left">
+                        <div class="eop-icon"> EX </div>
+                      </div>
+                      <div class="p-inner-right">
+                        <h5>Explore</h5>
+                        <p>
+                          A granular query engine that improves sales and marketingby cherry picking pre-qualified
+                          borrowers
+                        </p>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" class="btn btn-secondary-outline m-0">Go to Explore</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12 d-flex align-items-stretch">
+                <div class="card custom-card card-border-teal">
+                  <div class="card-body pt-3">
+                    <div class="product-inner-bar">
+                      <div class="p-inner-left">
+                        <div class="eop-icon"> MO </div>
+                      </div>
+                      <div class="p-inner-right">
+                        <h5>Monitor</h5>
+                        <p>
+                          A web-based tool that provides early warning signals (EWS) in the form of alerts to
+                          lendersabout build-up of stress and potential default by borrowers, enabling quick corrective
+                          action
+                        </p>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" class="btn btn-secondary-outline m-0">Go to Monitor</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12 d-flex align-items-stretch">
+                <div class="card custom-card card-border-lightgray">
+                  <div class="card-body pt-3">
+                    <div class="product-inner-bar">
+                      <div class="p-inner-left">
+                        <div class="eop-icon-one"> RQ </div>
+                      </div>
+                      <div class="p-inner-right">
+                        <h5>RisQ</h5>
+                        <p>
+                          A tool that tracks Assets Portfolio with continuous Risk Assessment, capturing obscure risk
+                          signals and providing early default prediction that leaves plenty of response time.
+                        </p>
+                      </div>
+                      <span id="pointer" class="shine">
+                        <span>New</span>
+                      </span>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" class="btn btn-secondary-outline m-0">Go to RisQ</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12 d-flex align-items-stretch">
+                <div class="card custom-card card-border-lightgray">
+                  <div class="card-body pt-3">
+                    <div class="product-inner-bar">
+                      <div class="p-inner-left">
+                        <div class="eop-icon-one"> VE </div>
+                      </div>
+                      <div class="p-inner-right">
+                        <h5>Verify</h5>
+                        <p>Know your Borrower better & protect the asset book from fraud involving siphoning of funds
+                          through Related Parties & Common/Cross Directorships through a quick check on MCA & GST
+                          Database.</p>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" class="btn btn-secondary-outline m-0">Go to Verify</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer text-white">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6"><span class="">© 2023 FinFort InfoTech LLP. All rights reserved.</span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 ">
+          <ul class="nav justify-content-end">
+            <li><a href="#">Help / FAQ</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+
+    var input = document.getElementById("empSearch");
+
+    input.addEventListener('input', function () {
+      if (input.value === '3') {
+        input.classList.remove('d-none');
+        alert('hello');
+        // Additional logic to show the element, e.g., input.style.display = 'block';
+      }
+    });
+
+
+    let results = document.getElementById("search-dropdown");
+    function myFunc(value) {
+      if (value !== "") {
+        results.classList.remove("d-none");
+        $(".company-refresh").removeClass("d-none")
+        console.log("true")
+      } else {
+        results.classList.add("d-none");
+        $(".company-refresh").addClass("d-none");
+        console.log("false")
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -284,6 +284,10 @@
   --bg-surface-4: var(--n200);
   --bg-surface-5: var(--n800);
   --bg-surface-6: var(--n600);
+<<<<<<< HEAD
+  --bg-surface-7: var(--n700);
+=======
+>>>>>>> main
 
   --bg-gradient-1: var(--cer500);
   --bg-gradient-2: var(--vir500);
@@ -360,8 +364,40 @@
   --bg-switch-2: var(--w50);
   --bg-tags: var(--ven500);
   --bg-scrollbar: var(--b600);
+<<<<<<< HEAD
+  --bs-table-color: var(--n300);
   --bg-muted: var(--b100);
   --bg-pagination-active: var(--n800);
+
+  --bg-active-date: var(--n900);
+  --bg-date-hover: var(--n200);
+  --bg-calender-sidebar: var(--n200);
+  --text-active-date: var(--w50);
+  --text-date-default: var(--n900);
+  --text-date-muted: var(--n400);
+  --text-date-hover: var(--n600);
+  --bg-calender-btn: var(--n700);
+  --text-calender-btn: var(--w50);
+  --bg-calender-btn-hover: var(--n500);
+  --bg-date-selection: var(--n300);
+
+
+  --bg-green-flag: #00800020;
+  --text-green-flag: #008000;
+  --border-green-flag: #008000;
+
+  --bg-red-flag: #ff000020;
+  --text-red-flag: #ff0000;
+  --border-red-flag: #ff0000;
+
+  --bg-yellow-flag: #f7be1120;
+  --text-yellow-flag: #f7be11;
+  --border-yellow-flag: #f7be11;
+  
+=======
+  --bg-muted: var(--b100);
+  --bg-pagination-active: var(--n800);
+>>>>>>> main
 }
 
 
@@ -407,7 +443,11 @@
   --text-neutral-1: var(--b100);
   --text-neutral-2: var(--s700);
   --text-link-1: var(--t400);
+<<<<<<< HEAD
+  --text-link-1-hover: var(--t300);
+=======
   --text-link-1-hover: var(--t600);
+>>>>>>> main
   --text-link-2: var(--er400);
   --text-link-3: var(--sc500);
   --text-btn-primary: var(--w50);
@@ -465,6 +505,10 @@
   --bg-surface-4: var(--alg500);
   --bg-surface-5: var(--alg500);
   --bg-surface-6: var(--w50);
+<<<<<<< HEAD
+  --bg-surface-7: var(--alg500);
+=======
+>>>>>>> main
   --bg-gradient-1: var(--cer500);
   --bg-gradient-2: var(--vir500);
   --bg-gradient-3: var(--sco500);
@@ -528,6 +572,35 @@
 
 
   --text-table-header: var(--sch500);
+<<<<<<< HEAD
+  --bs-table-color: var(--acr500);
   --bg-pagination-active: var(--b600);
 
+  --bg-active-date: var(--w50);
+  --text-active-date: var(--n600);
+  --text-date-default: var(--w50);
+  --bg-date-hover: var(--acr500);
+  --text-date-hover: var(--w50);
+  --bg-calender-btn: var(--n700);
+  --bg-calender-sidebar: var(--b900);
+  --text-calender-btn: var(--w50);
+  --bg-calender-btn-hover: var(--n800);
+  --bg-date-selection: var(--acr500);
+
+  --bg-green-flag: #008000;
+  --text-green-flag: #fff;
+  --border-green-flag: #008000;
+
+  --bg-red-flag: #ff0000;
+  --text-red-flag: #fff;
+  --border-red-flag: #ff0000;
+
+  --bg-yellow-flag: #f7be11;
+  --text-yellow-flag: #fff;
+  --border-yellow-flag: #f7be11;
+
+=======
+  --bg-pagination-active: var(--b600);
+
+>>>>>>> main
 }

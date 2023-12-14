@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finpository</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm justify-content-between custom-nav fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="d-flex align-middle">
+                <a class="navbar-brand ps-0" href="homePage.html">
+                    <h2>FINPOSITORY</h2>
+                </a>
+            </div>
+            <div class="nav-search">
+                <div style="position:relative;">
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="empSearch" value="hubtown" placeholder="Search a Name, PAN or DIN"
+                      autocomplete="off" (click)="toggleData()">
+                    <span class="company-refresh d-none"><i class="bi bi-arrow-repeat"></i></span>
+                    <button type="button" class="btn btn-primary m-0" routerLink="../searchresult">
+                      <i class="bi bi-search"></i>
+                      <span class="text-hidden-mobile">Search</span>
+                    </button>
+                  </div>
+                  <div class="search-dropdown card custom-card d-none">
+                    <div class="card-body p-0">
+                      <div class="simple-list-group">
+                        <div class="simple-list-item">
+                          <div class="media-body">
+                            <a routerLink="/front/companyProfile">Hubtown Limited </a>
+                            <div class="simple-list-sub-text">
+                              <span><i class="bi bi-geo-alt"></i></span> &nbsp;
+                              <span>Mumbai,
+                                MAHARASHTRA</span>
+                            </div>
+                          </div>
+                          <div class="media-right">
+                            <span class="badge badge-success">Active</span>
+                          </div>
+          
+                        </div>
+                        <div class="simple-list-item">
+                          <div class="media-body">
+                            <a routerLink="/front/companyProfile">Reliance industries private limited </a>
+                            <div class="simple-list-sub-text">
+                              <span><i class="bi bi-geo-alt"></i></span> &nbsp;
+                              <span>Mumbai,
+                                MAHARASHTRA</span>
+                            </div>
+                          </div>
+                          <div class="media-right">
+                            <span class="badge badge-success">Active</span>
+                          </div>
+          
+                        </div>
+                        <div class="simple-list-item">
+                          <div class="media-body">
+                            <a routerLink="/front/companyProfile">Bluevine Technologies pvt. ltd</a>
+                            <div class="simple-list-sub-text">
+                              <span><i class="bi bi-geo-alt"></i></span> &nbsp;
+                              <span>Ahmedabad,
+                                Gujrat</span>
+                            </div>
+                          </div>
+                          <div class="media-right">
+                            <span class="badge badge-success">Active</span>
+                          </div>
+          
+                        </div>
+                        <div class="simple-list-item">
+                          <div class="media-body">
+                            <a routerLink="/front/companyProfile">Shaz Packaging Llp </a>
+                            <div class="simple-list-sub-text">
+                              <span><i class="bi bi-geo-alt"></i></span> &nbsp;
+                              <span>Ahmedabad,
+                                Gujrat</span>
+                            </div>
+                          </div>
+                          <div class="media-right">
+                            <span class="badge badge-danger">Strike
+                              Off</span>
+                          </div>
+          
+                        </div>
+                        <div class="simple-list-item">
+                          <div class="media-body">
+                            <a routerLink="/front/companyProfile">Rcc Limited</a>
+                            <div class="simple-list-sub-text">
+                              <span><i class="bi bi-geo-alt"></i></span> &nbsp;
+                              <span>Ahmedabad,
+                                Gujrat</span>
+                            </div>
+                          </div>
+                          <div class="media-right">
+                            <span class="badge badge-danger">Strike
+                              Off</span>
+                          </div>
+          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <ul class="navbar-nav custom-nav-list">
+              <li class="nav-item">
+                <a id="toggle" class="nav-link fancy-button zoom toggle-mode mode-change">
+                    <input class="normal-icon mode-icon" type="checkbox">
+                    <div class="background"></div>
+                </a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link fancy-button zoom" >
+                        <i class="bi bi-house icon icon-left"></i>
+                        Home 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fancy-button zoom"><i class="bi bi-book icon icon-left"></i>
+                        All Orders
+                    </a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link fancy-button zoom" href="#" role="button" data-bs-toggle="dropdown"><i
+                            class="bi bi-person icon-left"></i>
+                        Hi,Urmi <i class="bi bi-chevron-down me-0"></i></a>
+                    <ul class="dropdown-menu custom-dropdown dropdown_animation profile-dropdown">
+                        <div class="profile-header">
+                            <div>
+                                <div class="user-icon">
+                                    UG
+                                </div>
+                                <div class="user-info">
+                                    <span class="userName">Urmi Gajjar</span>
+                                    <span class="userMail">urmi.gajjar@corporation.com </span>
+                                </div>
+                            </div>
+                            <div>
+                                <a routerLink="UserProfile"><i class="bi bi-pencil-square"></i></a>
+                            </div>
+                        </div>
+
+                        <li><a class="dropdown-item" routerLink="companyView"><i class="bi bi-eye"></i> Companies
+                                Viewed (44)</a>
+                        </li>
+                        <li><a class="dropdown-item history-toggle" data-bs-toggle="offcanvas"
+                                href="#recently-history"><i class="bi bi-eye icon"></i> Recently Visited</a></li>
+                        <li><a class="dropdown-item" routerLink="settings"><i class="bi bi-gear"></i>
+                                <span>settings</span></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-envelope"></i> <span>contact us</span></a>
+                        <li><a class="dropdown-item" routerLink="feedback"><i class="bi bi-chat-dots"></i>
+                                <span>feedback</span></a></li>
+                        <!-- <li>
+                            <a class="dropdown-item" href="#downloadfiles" data-bs-toggle="offcanvas"><i
+                                    class="bi bi-download"></i>
+                                <span>Download Files</span></a>
+                        </li> -->
+                        <li>
+                            <a class="dropdown-item mode-change"><i class="bi bi-brightness-high"></i>
+                                <span>Dark Mode</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-shield-check"></i> <span>privacy
+                                    policy</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-text"></i> <span>terms and
+                                    conditions</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-layers"></i> <span>about us</span></a>
+                        </li>
+                        <!-- <li><a class="dropdown-item" routerLink="404"><span>404</span></a></li>
+                        <li><a class="dropdown-item" routerLink="MyOrder"><span>My order</span></a></li>
+                        <li><a class="dropdown-item" routerLink="Mycart"><span>My Cart</span></a></li> -->
+                        <div class="dropdown-footer">
+                            <button class="btn btn-secondary-outline m-0 w-100">Sign Out</button>
+                        </div>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- nevbar end here -->
+    <div class="secondary-header start-0" id="secondary-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="company-name">
+                        <h3>Search Results</h3>
+                        <span class="fs-2">9 companies/LLPs found with the keyword Hubtown</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper ms-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card custom-card m-0">
+                        <div class="card-body p-0">
+                            <div class="simple-list-group">
+        
+                                <div class="simple-list-item">
+                                    <div class="media-body">
+                                        <a routerLink="/front/companyProfile">HUBTOWN
+                                            LIMITED </a>
+                                        <div class="simple-list-sub-text">
+                                            <span><i class="bi bi-geo-alt"></i></span>
+                                            <span>Mumbai,
+                                                MAHARASHTRA</span>
+                                        </div>
+                                    </div>
+                                    <div class="media-right">
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                </div>
+                                <div class="simple-list-item">
+                                    <div class="media-body">
+                                        <a routerLink="/front/companyProfile">Weight Farmer Producer Company
+                                            Limited </a>
+                                        <div class="simple-list-sub-text">
+                                            <span><i class="bi bi-geo-alt"></i></span>
+                                            <span>Mumbai,
+                                                MAHARASHTRA</span>
+                                        </div>
+                                    </div>
+                                    <div class="media-right">
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                </div>
+                                <div class="simple-list-item">
+                                    <div class="media-body">
+                                        <a routerLink="/front/companyProfile">Rec Limited</a>
+                                        <div class="simple-list-sub-text">
+                                            <span><i class="bi bi-geo-alt"></i></span>
+                                            <span>Mumbai,
+                                                MAHARASHTRA</span>
+                                        </div>
+                                    </div>
+                                    <div class="media-right">
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                </div>
+                                <div class="simple-list-item">
+                                    <div class="media-body">
+                                        <a routerLink="/front/companyProfile">Reliance industries limited</a>
+                                        <div class="simple-list-sub-text">
+                                            <span><i class="bi bi-geo-alt"></i></span>
+                                            <span>Mumbai,
+                                                MAHARASHTRA</span>
+                                        </div>
+                                        <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                                    </div>
+                                    <div class="media-right">
+                                        <!-- <span class="badge badge-danger">strike off</span> -->
+                                    </div>
+                                </div>
+                                <div class="simple-list-item">
+                                    <div class="media-body">
+                                        <a routerLink="/front/companyProfile">Hubtown Bus Terminal (mehsana) Private Limited</a>
+                                        <div class="simple-list-sub-text">
+                                            <span><i class="bi bi-geo-alt"></i></span>
+                                            <span>Mumbai,
+                                                MAHARASHTRA</span>
+                                        </div>
+                                        <span class="badge badge-neutral">PAN: QWERT0987Y</span>
+                                    </div>
+                                    <div class="media-right">
+                                        <!-- <span class="badge badge-danger">strike off</span> -->
+                                    </div>
+                                </div>
+                                <div class="simple-list-item">
+                                    <div class="media-body">
+                                        <a routerLink="/front/companyProfile">Hubtown Bus Terminal (Ahmedabad) Private Limited</a>
+                                        <div class="simple-list-sub-text">
+                                            <span><i class="bi bi-geo-alt"></i></span>
+                                            <span>Mumbai,
+                                                MAHARASHTRA</span>
+                                        </div>
+                                    </div>
+                                    <div class="media-right">
+                                        <span class="badge badge-danger">strike off</span>
+                                    </div>
+                                </div>
+        
+                                <div class="simple-list-item">
+                                    <div class="media-body">
+                                        <a routerLink="/front/companyProfile">Hubtown Bus Terminal (Vadodra) Private Limited</a>
+                                        <div class="simple-list-sub-text">
+                                            <span><i class="bi bi-geo-alt"></i></span>
+                                            <span>Mumbai,
+                                                MAHARASHTRA</span>
+                                        </div>
+                                    </div>
+                                    <div class="media-right">
+                                        <span class="badge badge-danger">strike off</span>
+                                    </div>
+                                </div>
+                                <div class="simple-list-item">
+                                    <div class="media-body">
+                                        <a routerLink="/front/companyProfile">Hubtown Solaris Maintenance Private Limited</a>
+                                        <div class="simple-list-sub-text">
+                                            <span><i class="bi bi-geo-alt"></i></span>
+                                            <span>Mumbai,
+                                                MAHARASHTRA</span>
+                                        </div>
+                                    </div>
+                                    <div class="media-right">
+                                        <span class="badge badge-danger">strike off</span>
+                                    </div>
+                                </div>
+                                <div class="simple-list-item">
+                                    <div class="media-body">
+                                        <a routerLink="/front/companyProfile">Hubtown Viva Maintenance Private Limited</a>
+                                        <div class="simple-list-sub-text">
+                                            <span><i class="bi bi-geo-alt"></i></span>
+                                            <span>Mumbai,
+                                                MAHARASHTRA</span>
+                                        </div>
+                                    </div>
+                                    <div class="media-right">
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="custom-pagination mb-3"><span
+                                    class="result">27 Results</span><span class="result-dropdown"> Show
+                                    <select>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                        <option value="50">50</option>
+                                    </select>  </span><span class="result">Showing <span
+                                    >1 - 10</span> of 27</span>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a href="#"
+                                                class="page-link Previous"><i
+                                                    class="bi bi-chevron-left"></i> Previous</a></li>
+                                        <li class="page-item"><a href="#"
+                                                class="page-link active">1</a></li>
+                                        <li class="page-item"><a href="#"
+                                                class="page-link">2</a></li>
+                                        <li class="page-item"><a href="#"
+                                                class="page-link">3</a></li>
+                                        <li class="page-item"><a href="#"
+                                                class="page-link">4</a></li>
+                                        <li class="page-item"><a href="#"
+                                                class="page-link">5</a></li>
+                                        <li class="page-item"><a href="#"
+                                                class="page-link">Next <i
+                                                    class="bi bi-chevron-right"></i></a></li>
+                                    </ul>
+                                </nav><span class="result-dropdown"> jump to page <select
+                                    >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      <footer class="footer text-white" id="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6"><span class="">© 2023 FinFort InfoTech LLP. All rights reserved.</span></div>
+                <div class="col-lg-6 col-md-6 col-sm-6 ">
+                    <ul class="nav justify-content-end">
+                        <li><a href="#">Help / FAQ</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+    $(document).ready(function(){
+    
+        var secondaryHeader = document.getElementById("secondary-header");
+        var navbar = document.getElementById("navbar");
+        var footer = document.getElementById('footer')
+
+        var navbarheight = navbar.clientHeight;
+        var secondaryHeaderheight = secondaryHeader.clientHeight;
+        var footerheight = footer.clientHeight
+        $('.wrapper').css('margin-top', (secondaryHeaderheight + navbarheight + 16 + 'px'));
+        if(secondaryHeader){
+        $('.wrapper').css('min-height', 'calc(100vh - ' + (secondaryHeaderheight +  navbarheight + footerheight + 16)+ 'px)');
+        }
+    })
+    </script>
+</body>
+</html>
