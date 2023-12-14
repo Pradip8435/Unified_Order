@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corpository-Insight</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm justify-content-between custom-nav fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="d-flex align-middle">
+                <div class="toggle me-2">
+                    <i class="bi bi-list"></i>
+                  </div>
+                <a class="navbar-brand ps-0" routerLink="home">
+                    <h2>FINPOSITORY</h2>
+                </a>
+            </div>
+            <ul class="navbar-nav custom-nav-list">
+              <li class="nav-item">
+                <a id="toggle" class="nav-link fancy-button zoom toggle-mode mode-change">
+                    <input class="normal-icon mode-icon" type="checkbox">
+                    <div class="background"></div>
+                </a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link fancy-button zoom" >
+                        <i class="bi bi-house icon icon-left"></i>
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fancy-button zoom"><i class="bi bi-book icon icon-left"></i>
+                        All Orders
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link fancy-button zoom" href="#" role="button" data-bs-toggle="dropdown"><i
+                            class="bi bi-person icon-left"></i>
+                        Hi,Urmi <i class="bi bi-chevron-down me-0"></i></a>
+                    <ul class="dropdown-menu custom-dropdown dropdown_animation profile-dropdown">
+                        <div class="profile-header">
+                            <div>
+                                <div class="user-icon">
+                                    UG
+                                </div>
+                                <div class="user-info">
+                                    <span class="userName">Urmi Gajjar</span>
+                                    <span class="userMail">urmi.gajjar@corporation.com </span>
+                                </div>
+                            </div>
+                            <div>
+                                <a routerLink="UserProfile"><i class="bi bi-pencil-square"></i></a>
+                            </div>
+                        </div>
+                        <li><a class="dropdown-item" routerLink="companyView"><i class="bi bi-eye"></i> Companies
+                                Viewed (44)</a>
+                        </li>
+                        <li><a class="dropdown-item history-toggle" data-bs-toggle="offcanvas"
+                                href="#recently-history"><i class="bi bi-eye icon"></i> Recently Visited</a></li>
+                        <li><a class="dropdown-item" routerLink="settings"><i class="bi bi-gear"></i>
+                                <span>settings</span></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-envelope"></i> <span>contact us</span></a>
+                        <li><a class="dropdown-item" routerLink="feedback"><i class="bi bi-chat-dots"></i>
+                                <span>feedback</span></a></li>
+                        <!-- <li>
+                            <a class="dropdown-item" href="#downloadfiles" data-bs-toggle="offcanvas"><i
+                                    class="bi bi-download"></i>
+                                <span>Download Files</span></a>
+                        </li> -->
+                        <li>
+                            <a class="dropdown-item mode-change"><i class="bi bi-brightness-high"></i>
+                                <span>Dark Mode</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-shield-check"></i> <span>privacy
+                                    policy</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-text"></i> <span>terms and
+                                    conditions</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-layers"></i> <span>about us</span></a>
+                        </li>
+                        <!-- <li><a class="dropdown-item" routerLink="404"><span>404</span></a></li>
+                        <li><a class="dropdown-item" routerLink="MyOrder"><span>My order</span></a></li>
+                        <li><a class="dropdown-item" routerLink="Mycart"><span>My Cart</span></a></li> -->
+                        <div class="dropdown-footer">
+                            <button class="btn btn-secondary-outline m-0 w-100">Sign Out</button>
+                        </div>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- sidebar -->
+    <nav class="sidebar close">
+        <div class="sidebar-inner">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <li class="nab-list">
+                    <a routerLink="/front/flags" class="nav-link fancy-button zoom fancy-button zoom" id="nav-home-tab" data-bs-toggle="tab"  role="tab">
+                        <div class="icon">
+                            <!-- <i class="bi bi-flag"></i> -->
+                            <img src="images/flags.svg" alt="">
+                        </div>
+                        <span class="text nav-text">Flags</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/companyProfile" class="nav-link fancy-button zoom active free-tab" id="nav-profile-tab" data-bs-toggle="tab" role="tab"  >
+                         <div class="icon">
+                            <i class="bi bi-grid-1x2"></i>
+                        </div>
+                        <span class="text">Summary</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/director" class="nav-link fancy-button zoom free-tab" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
+                                <path d="M12.2341 9.70279C13.2598 10.218 14.1392 11.0449 14.781 12.0789C14.9081 12.2837 14.9717 12.386 14.9937 12.5278C15.0383 12.8159 14.8413 13.1701 14.573 13.2841C14.4409 13.3402 14.2924 13.3402 13.9953 13.3402M10.8251 6.67016C11.869 6.1514 12.5863 5.0742 12.5863 3.82944C12.5863 2.58468 11.869 1.50748 10.8251 0.988718M9.41607 3.82944C9.41607 5.58033 7.9967 6.9997 6.24581 6.9997C4.49493 6.9997 3.07555 5.58033 3.07555 3.82944C3.07555 2.07855 4.49493 0.65918 6.24581 0.65918C7.9967 0.65918 9.41607 2.07855 9.41607 3.82944ZM1.35602 11.8878C2.47922 10.2013 4.25163 9.11321 6.24581 9.11321C8.24 9.11321 10.0124 10.2013 11.1356 11.8878C11.3817 12.2572 11.5047 12.442 11.4905 12.6779C11.4795 12.8617 11.3591 13.0866 11.2122 13.1976C11.0237 13.3402 10.7644 13.3402 10.2457 13.3402H2.2459C1.72726 13.3402 1.46793 13.3402 1.27938 13.1976C1.13257 13.0866 1.01213 12.8617 1.0011 12.6779C0.986935 12.442 1.10996 12.2572 1.35602 11.8878Z" stroke="#344054" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        </div>
+                        <span class="text">Directors</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/charges" class="nav-link fancy-button zoom free-tab" id="nav-contact-tab free-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M5.55 6.59989H10.45M5.55 4.15H10.45M9.4 12.2001L5.55 9.05011L6.6 9.05C9.71127 9.05 9.71127 4.15 6.6 4.15M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z" stroke="#344054" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                
+                        </div>
+                        <span class="text">Charges</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/rating" class="nav-link fancy-button zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <img src="images/starts.svg" alt="">
+                        </div>
+                        <span class="text">Rating</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/financials" class="nav-link fancy-button zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <img src="images/financials.svg" alt="">
+                        </div>
+                        <span class="text">Financials</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/auditors" class="nav-link fancy-button zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <img src="images/auditors.svg" alt="">
+                        </div>
+                        <span class="text">Auditors</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/peers" class="nav-link fancy-button zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <img src="images/peers.svg" alt="">
+                        </div>
+                        <span class="text">Peers</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/shareholding" class="nav-link fancy-button zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <img src="images/shareholding.svg" alt="">
+                        </div>
+                        <span class="text">shareholding</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/associate" class="nav-link fancy-button zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <img src="images/assosiate.svg" alt="">
+                        </div>
+                        <span class="text">Associates</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/litigation-defaults" class="nav-link fancy-button zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <img src="images/litigation.svg" alt="">
+                        </div>
+                        <span class="text">litigations/defaults</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="compliance" class="nav-link fancy-button zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <img src="images/compliance.svg" alt="">
+                        </div>
+                        <span class="text">compliance</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/news" class="nav-link fancy-button zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <img src="images/news.svg" alt="">
+                            <span class="new-tab-dot tags-dot pulse"></span>
+                        </div>
+                        <span class="text">News <span class="tags-new pulse ms-2">New</span></span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/consent" class="nav-link fancy-button free-tab zoom" id="nav-contact-tab" data-bs-toggle="tab"  role="tab" >
+                        <div class="icon">
+                            <i class="bi bi-activity"></i>
+                        </div>
+                        <span class="text">Request History </span>
+                    </a>
+                </li>
+            </div>
+            <!-- <div class="nav nav-tabs virtual-tour-block" id="nav-tab" role="tablist">
+                <li class="nab-list">
+                    <a data-bs-toggle="modal" href="#onload" class="nav-link fancy-button zoom virtual-tour" id="nav-home-tab" data-bs-toggle="tab"  role="tab"  >
+                        <div class="icon">
+                            <i class="bi bi-play-btn"></i>
+                        </div>
+                        <span class="text nav-text">Virtual Tour</span>
+                    </a>
+                </li>
+            </div> -->
+        </div>
+    </nav>
+    <!-- sidebar end here -->
+
+    <!-- Secondary Header -->
+    <div class="secondary-header" id="secondary-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="#">Summary</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">New Request</li>
+                        </ol>
+                      </nav>
+                    <div class="inner-content">
+                        <div class="text-start">
+                            <div class="company-name">
+                                <h3>Krishtech Technologies</h3>
+                                <small class="badge badge-neutral">QWERT0129Y</small>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <button class="btn btn-link btn-sm"><i class="bi bi-arrow-left-short"></i>back</button>
+                            <button class="btn btn-link btn-sm">skip<i class="bi bi-arrow-right-short me-0 ms-1"></i></button>
+                            <button class="btn btn-primary btn-sm">save & next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Secondary Header End -->
+
+    <!-- Wrapper start  -->
+    <div class="wrapper m-left">
+        <div class="container">
+            <div class="row">
+                 <!-- Final Request Submission card  start-->
+                <div class="col-md-12">
+                    <div class="card custom-card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5>Final Request Submission</h5>
+                            <p class="request-note">Please process all requests for this PAN within 30 days</p>
+                        </div>
+                        <div class="card-body">
+                            <table class="custom-table border-style-table">
+                                <thead>
+                                    <tr>
+                                        <th>Data Source</th>
+                                        <th style="width: 10%;">Status</th>
+                                        <th style="width: 10%;" class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>ITR - Consent</td>
+                                        <td><span class="badge badge-success">Filled</span></td>
+                                        <td class="text-center"><button type="button" class="btn btn-sm btn-secondary-outline w-100 m-0">Edit</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>GST - Consent</td>
+                                        <td><span class="badge badge-success">Filled</span></td>
+                                        <td class="text-center"><button type="button" class="btn btn-sm btn-secondary-outline w-100 m-0">Edit</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>GST - Upload</td>
+                                        <td><span class="badge badge-success">Filled</span></td>
+                                        <td class="text-center"><button type="button" class="btn btn-sm btn-secondary-outline w-100 m-0">Edit</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Banking - Upload</td>
+                                        <td><span class="badge badge-success">Filled</span></td>
+                                        <td class="text-center"><button type="button" class="btn btn-sm btn-secondary-outline w-100 m-0">Edit</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bureau - Integration</td>
+                                        <td><span class="badge badge-success">Filled</span></td>
+                                        <td class="text-center"><button type="button" class="btn btn-sm btn-secondary-outline w-100 m-0">Edit</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bureau - Upload</td>
+                                        <td><span class="badge badge-success">Filled</span></td>
+                                        <td class="text-center"><button type="button" class="btn btn-sm btn-secondary-outline w-100 m-0">Edit</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Final Request Submission card  End-->
+
+                <!-- Final Request Submission card  start-->
+                <div class="col-md-12">
+                    <div class="card custom-card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5>Applicant’s Management / CA / Lawyer’s Contact Details</h5>
+                            <div>
+                                <button class="btn btn-sm btn-secondary-outline add-parties"><i class="bi bi-plus"></i>Add Related Parties</button>
+                            </div>
+                        </div>
+                        <div class="card-body dynamic-card d-none">
+                            <table class="custom-table border-style-table" id="myTable">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Related Party</th>
+                                        <th>Bank Account Number</th>
+                                        <th>Relation</th>
+                                        <th>Trade / Non-Trade</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Manmeet Jain</td>
+                                        <td><input type="text" class="form-control" placeholder="Enter Bank Account Number"></td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select required name="" id="" class="form-select">
+                                                    <option value="" disabled selected>Select</option>
+                                                    <option value="">value 1</option>
+                                                    <option value="">value 1</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select required name="" id="" class="form-select">
+                                                    <option value="" disabled selected>Select</option>
+                                                    <option value="" selected>Trade</option>
+                                                    <option value="">Non-Trade</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td class="text-center align-middle"><a class="remove-item"><i class="bi bi-trash3 text-red"></i></a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Devasya Khira</td>
+                                        <td><input type="text" class="form-control" placeholder="Enter Bank Account Number"></td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select required name="" id="" class="form-select">
+                                                    <option value="" disabled selected>Select</option>
+                                                    <option value="">value 1</option>
+                                                    <option value="">value 1</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <select required name="" id="" class="form-select">
+                                                    <option value="" disabled selected>Select</option>
+                                                    <option value="">Trade</option>
+                                                    <option value="" selected>Non-Trade</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td class="text-center align-middle"><a class="remove-item"><i class="bi bi-trash3 text-red"></i></a></td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Final Request Submission card  End-->
+
+                 <!-- RM Uploads card  start-->
+                 <div class="col-md-12">
+                    <div class="card custom-card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5>RM Uploads</h5>
+                            <div>
+                                <button class="btn btn-sm btn-secondary-outline" id="toggleBtn"><i class="bi bi-plus"></i>Add</button>
+                            </div>
+                        </div>
+                        <div class="card-body upload-dynamic-file" id="myDiv">
+                           <div>dssadsadf</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- RM Uploads card  End-->
+            </div>
+        </div>
+     </div>
+    <!-- Wrapper End  -->
+
+    <!-- Footer -->
+    <footer class="footer m-left text-white" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4"><span class="">© 2023 All Rights Reserved</span></div>
+                <div class="col-lg-4 col-md-4 col-sm-4 ">
+                    <ul class="nav justify-content-center">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                      </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <ul class="nav social-media justify-content-end">
+                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                        <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Script Section -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+    <script>
+        var intro = introJs();
+        intro.onbeforeexit(function () {
+            $("#tourGuid").modal('show')
+        })
+        // Set up the steps
+        intro.setOptions({
+            tooltipClass: 'customTooltip',
+            dontShowAgain: false,
+            exitOnOverlayClick: false,
+            showStepNumbers: false
+        });
+        // Start the introduction
+        intro.start();
+
+        $(document).ready(function () {
+                     
+             // new for wrapper heightjs 
+             var secondaryHeader = document.getElementById("secondary-header");
+                var navbar = document.getElementById("navbar");
+                var footer = document.getElementById('footer')
+                var navbarheight = navbar.clientHeight;
+                var secondaryHeaderheight = secondaryHeader.clientHeight;
+                var footerheight = footer.clientHeight
+                $('.wrapper').css('margin-top', (secondaryHeaderheight + navbarheight + 16 + 'px'));
+                if(secondaryHeader){
+                $('.wrapper').css('min-height', 'calc(100vh - ' + (secondaryHeaderheight +  navbarheight + footerheight + 16)+ 'px)');
+                }
+
+            $("#toggleside").click(function () {
+                $(".sidebar").toggleClass("close");
+                // $("#toggleside").toggleClass("change");
+                $(".wrapper, .footer").toggleClass("m-left");
+                $("#secondary-header").toggleClass("sh-left");
+                // $("#update-msg").toggleClass("sh-left");
+            });
+            $(".searchToggle").click(function () {
+                $(".nav-search").toggle()
+              })
+          
+              $('.mode-change').click(function () {
+                $(this).find('.bi').toggleClass('bi-brightness-high bi-moon');
+                $('body').toggleClass('dark-mode');
+              });
+              $('#toggle').on('click', function () {
+                $('input.mode-icon').toggleClass('checked');
+              });
+
+            //   Show hide card-body
+            $(".add-parties").click(function() {
+               $(".dynamic-card").removeClass("d-none");
+            });
+            // $(".remove-item").click(function() {
+            // $(this).closest("tr").remove();
+            //  }); 
+            $(".remove-item").click(function() {
+            // Get the parent row
+            var row = $(this).closest("tr");
+            
+            // Remove the row, but make sure at least one row remains
+            if ($("#myTable tbody tr").length > 1) {
+                row.remove();
+            } else {
+                $(".dynamic-card").addClass("d-none");
+            }
+        });
+
+            $('#myDiv').hide();
+            // Toggle the div and button text on button click
+            $('#toggleBtn').on('click', function() {
+            $('#myDiv').toggle();
+            $(this).html(function(_, html){
+                return $.trim(html) === '<i class="bi bi-plus"></i> Add' ? '<i class="bi bi-trash"></i> Remove' : '<i class="bi bi-plus"></i> Add';
+            });
+            });
+
+        });
+
+        
+    </script>
+</body>
+
+</html>
