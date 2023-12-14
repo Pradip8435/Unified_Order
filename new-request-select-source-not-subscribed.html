@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corpository-Insight</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm justify-content-between custom-nav fixed-top" id="navbar">
+        <div class="container-fluid">
+            <div class="d-flex align-middle">
+                <!-- <div class="toggle" id="toggleside">
+                    <i class="bi bi-list"></i>
+                </div> -->
+                <a class="navbar-brand p-0" routerLink="home">
+                    <img src="images/FINPOSITORY.svg" class="img-responsive" alt="BrandLogo" />
+                    <!-- <img src="images/favicon-white.svg" class="logo_icon" alt="CorpositoryBrand"> -->
+                </a>
+            </div>
+            <div class="nav-search">
+                <div style="position:relative;">
+                    <div class="input-group">
+                        <div class="btn-group">
+                            <button type="button" class="select-box" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-shop-window"></i><span class="line"></span>Company / LLP <i
+                                    class="bi bi-chevron-down"></i>
+                                <span class="line me-0"></span></button>
+                            <ul class="dropdown-menu custom-select">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-shop-window"></i>&nbsp; Company /
+                                        LLP</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i>&nbsp; Director /
+                                        Partner</a></li>
+                            </ul>
+                        </div>
+                        <input type="text" class="form-control ps-0" id="empSearch"
+                            placeholder="Search Company / LLP By Name" autocomplete="off" (click)="toggleData()">
+                        <span class="company-refresh d-none" *ngIf="isRefreshVisible"><i
+                                class="bi bi-arrow-repeat"></i></span>
+                        <button type="button" class="btn btn-primary m-0" routerLink="searchresult">
+                            <i class="bi bi-search "></i>
+                            <span class="text-hidden-mobile">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ul class="navbar-nav custom-nav-list">
+                <li class="nav-item">
+                    <a class="nav-link searchToggle">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li>
+                <li class="nav-item recently-history">
+                    <a class="nav-link fancy-button bell" id="recently_company" data-bs-toggle="offcanvas" href="#recently-history"
+                        aria-controls="offcanvasExample">
+                        <i class="bi bi-eye icon me-0"></i>
+                    </a>
+                </li>
+                <li class="nav-item toggle-mode-theme">
+                    <a id="toggle" class="nav-link fancy-button zoom toggle-mode mode-change">
+                        <input class="normal-icon mode-icon" type="checkbox">
+                        <div class="background"></div>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="" class="nav-link fancy-button zoom" data-bs-toggle="dropdown"><i
+                            class="bi bi-grid icon-left"></i>solutions <i class="bi bi-chevron-down"></i></a>
+                    <ul class="dropdown-menu solution_dropdown dropdown_animation pb-0">
+                        <div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-teal">
+                                        <div class="card-body pt-3">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon">
+                                                        EX
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>Explore</h5>
+                                                    <p>A granular query engine that improves sales and...</p>
+                                                    <button type="button" class="btn  btn-primary">Go to
+                                                        Explore</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-teal c-mb-10">
+                                        <div class="card-body pt-3">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon">
+                                                        GST
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>GST Analyze</h5>
+                                                    <p>Know your borrower’s business better through...</p>
+                                                    <button type="button" class="btn  btn-primary">Go to GST
+                                                        Analyze</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-teal">
+                                        <div class="card-body pt-3 ">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon">
+                                                        MN
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>Monitor</h5>
+                                                    <p>A web-based tool that provides early warning signa...</p>
+                                                    <button type="button" class="btn  btn-primary">Go to
+                                                        Monitor</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-lightgray">
+                                        <div class="card-body pt-3 ">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon-one">
+                                                        RQ
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>RISQ</h5>
+                                                    <p>A tool that tracks Assets Portfolio with continuous Ris</p>
+                                                    <button type="button"
+                                                        class="btn  btn-secondary-outline">Subscribe</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-lightgray">
+                                        <div class="card-body pt-3 ">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon-one">
+                                                        VE
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>Verify</h5>
+                                                    <p>Know your Borrower better & protect the asset book from...</p>
+                                                    <button type="button"
+                                                        class="btn  btn-secondary-outline">Subscribe</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-lightgray">
+                                        <div class="card-body pt-3 ">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon-one">
+                                                        NP
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>New Product</h5>
+                                                    <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                                    <button type="button"
+                                                        class="btn  btn-secondary-outline">Subscribe</button>
+                                                </div>
+                                                <span id="pointer" class="shine">
+                                                    <span>New</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link fancy-button zoom" href="#" role="button" data-bs-toggle="dropdown"><i
+                            class="bi bi-person icon-left"></i>
+                        Hi,Urmi <i class="bi bi-chevron-down"></i></a>
+                    <ul class="dropdown-menu custom-dropdown dropdown_animation profile-dropdown">
+                        <div class="profile-header">
+                            <div>
+                                <div class="user-icon">
+                                    UG
+                                </div>
+                                <div class="user-info">
+                                    <span class="userName">Urmi Gajjar</span>
+                                    <span class="userMail">urmi.gajjar@corporation.com </span>
+                                </div>
+                            </div>
+                            <div>
+                                <a routerLink="UserProfile"><i class="bi bi-pencil-square"></i></a>
+                            </div>
+                        </div>
+
+                        <li><a class="dropdown-item" routerLink="companyView"><i class="bi bi-eye"></i> Companies
+                                Viewed (44)</a>
+                        </li>
+                        <li><a class="dropdown-item history-toggle" data-bs-toggle="offcanvas"
+                                href="#recently-history"><i class="bi bi-eye icon"></i> Recently Visited</a></li>
+                        <li><a class="dropdown-item" routerLink="settings"><i class="bi bi-gear"></i>
+                                <span>settings</span></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-envelope"></i> <span>contact us</span></a>
+                        <li><a class="dropdown-item" routerLink="feedback"><i class="bi bi-chat-dots"></i>
+                                <span>feedback</span></a></li>
+                        <!-- <li>
+                            <a class="dropdown-item" href="#downloadfiles" data-bs-toggle="offcanvas"><i
+                                    class="bi bi-download"></i>
+                                <span>Download Files</span></a>
+                        </li> -->
+                        <li>
+                            <a class="dropdown-item mode-change"><i class="bi bi-brightness-high"></i>
+                                <span>Dark Mode</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-shield-check"></i> <span>privacy
+                                    policy</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-text"></i> <span>terms and
+                                    conditions</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-layers"></i> <span>about us</span></a>
+                        </li>
+                        <!-- <li><a class="dropdown-item" routerLink="404"><span>404</span></a></li>
+                        <li><a class="dropdown-item" routerLink="MyOrder"><span>My order</span></a></li>
+                        <li><a class="dropdown-item" routerLink="Mycart"><span>My Cart</span></a></li> -->
+                        <div class="dropdown-footer">
+                            <button class="btn btn-secondary-outline m-0 w-100">Sign Out</button>
+                        </div>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Secondary Header -->
+    <div class="scrolTopAnimation">
+        <div class="secondary-header mb-0 start-0" id="secondary-header">
+            <div class="container-fluid">
+                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb custom-breadcrumb">
+                      <li class="breadcrumb-item"><a href="#">Summary</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">New Request</li>
+                    </ol>
+                  </nav>
+                <div class="inner-content">
+                    <div class="text-start">
+                        <div class="company-name">
+                            <h3>Krishtech Technologies</h3>
+                        </div>
+                        <span class="badge badge-neutral mt-3">QWERT0129Y</span>
+                    </div>
+                    <div class="text-end">
+                        <div class="secondary-form-group">
+                             <li class="list-group-item">
+                                <input class="form-check-input me-1" type="checkbox" value="" id="selectall" checked>
+                                <label class="form-check-label" for="selectall">Select All</label>
+                              </li>
+                            <button class="btn  btn-primary fancy-button"> Initiate Request</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Secondary Header End -->
+
+     <!-- wrapper -->
+     <div class="wrapper ms-0">
+        <div class="container-fluid">
+            <div class="row">
+                <p class="request-note">Last request was placed for this PAN / Entity on 29/10/2023  <a href="">View Last Request</a></p>
+               <div class="col-sm-3 d-flex align-items-stretch">
+                <div id="card" class="card custom-card">
+                    <div class="card-header border-0 d-flex justify-content-between align-items-center">
+                      <h4>ITR - Consent</h4>
+                      <span><input class="form-check-input me-1" type="checkbox" value="" checked></span>
+                    </div>
+                    <div class="card-body border-0 pt-0">
+                      <p>Analyse ITR data for multiple PAN via consent method.</p>
+                    </div>
+                  </div>
+               </div>
+
+               <div class="col-sm-3 d-flex align-items-stretch">
+                <div id="card" class="card custom-card">
+                    <div class="card-header border-0 d-flex justify-content-between align-items-center">
+                      <h4>GST - Consent</h4>
+                      <span><input class="form-check-input me-1" type="checkbox" value="" checked></span>
+                    </div>
+                    <div class="card-body border-0 pt-0">
+                      <p>Analyse GST data for multiple GSTINS via consent method.</p>
+                    </div>
+                  </div>
+               </div>
+
+               <div class="col-sm-3 d-flex align-items-stretch">
+                <div id="card" class="card custom-card">
+                    <div class="card-header border-0 d-flex justify-content-between align-items-center">
+                      <h4>GST - Upload</h4>
+                      <span><input class="form-check-input me-1" type="checkbox" value="" checked></span>
+                    </div>
+                    <div class="card-body border-0 pt-0">
+                      <p>Analyse GST data for multiple GSTINS via upload method.</p>
+                    </div>
+                  </div>
+               </div>
+
+               <div class="col-sm-3 d-flex align-items-stretch">
+                <div id="card" class="card custom-card">
+                    <div class="card-header border-0 d-flex justify-content-between align-items-center">
+                      <h4>Banking - Upload</h4>
+                      <span><input class="form-check-input me-1" type="checkbox" value="" checked></span>
+                    </div>
+                    <div class="card-body border-0 pt-0">
+                      <p>Analyse bank statement for multiple entities via upload or account aggregator method.</p>
+                    </div>
+                  </div>
+               </div>
+
+               <div class="col-sm-3 d-flex align-items-stretch">
+                <div id="card" class="card custom-card">
+                    <div class="card-header border-0">
+                      <span class="badge badge-neutral mb-4">Not Subscribed</span>
+                      <h4>Bureau - Integration</h4>
+                    </div>
+                    <div class="card-body border-0 pt-0">
+                      <p>Analyse Bureau data for multiple entities via integration method.</p>
+                    </div>
+                  </div>
+               </div>
+
+               <div class="col-sm-3 d-flex align-items-stretch">
+                <div id="card" class="card custom-card">
+                    <div class="card-header border-0">
+                         <span class="badge badge-neutral mb-4">Not Subscribed</span>
+                        <h4>Bureau - Upload</h4>
+                    </div>
+                    <div class="card-body border-0 pt-0">
+                      <p>Analyse Bureau data for multiple entities via upload method.</p>
+                    </div>
+                  </div>
+               </div>
+
+               <div class="col-sm-3 d-flex align-items-stretch">
+                <div id="card" class="card custom-card">
+                    <div class="card-header border-0">
+                         <span class="badge badge-neutral mb-4">Not Subscribed</span>
+                        <h4>Alternate Data</h4>
+                    </div>
+                    <div class="card-body border-0 pt-0">
+                      <p>This will automatically fetch the latest Public Data available for Ratings, Directors, News, Public Finance</p>
+                    </div>
+                  </div>
+               </div>
+
+            </div>
+        </div>
+    </div> 
+    <!-- wrapper End--> 
+    
+        <!-- Footer -->
+        <footer class="footer text-white ms-0" id="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4"><span class="">© 2023 All Rights Reserved</span></div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 ">
+                        <ul class="nav justify-content-center">
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Terms</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                          </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <ul class="nav social-media justify-content-end">
+                            <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                            <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                            <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                          </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        
+        
+        
+
+
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+    <script>
+           
+
+        // if (window.matchMedia("(min-width: 768px)").matches) {
+        //     var script = document.createElement('script');
+        //     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js';
+        //     document.head.appendChild(script);
+        // }
+
+    //     window.addEventListener('load', function () {
+    //         // introJs().setOption("dontShowAgain", true).start(function(){
+
+    //         // });
+    //         introJs().setOptions({
+    //             tooltipClass: 'customTooltip',
+    //             dontShowAgain: false
+    //         }).start()
+
+
+            
+
+    //   })
+        var intro = introJs();
+        intro.onbeforeexit(function () {
+            $("#tourGuid").modal('show')
+        })
+        // Set up the steps
+        intro.setOptions({
+            tooltipClass: 'customTooltip',
+            dontShowAgain: false,
+            exitOnOverlayClick: false,
+            showStepNumbers: false
+        });
+        // Start the introduction
+        intro.start();
+
+        $(document).ready(function () {
+                     
+           
+            $("#toggleside").click(function () {
+                $(".sidebar").toggleClass("close");
+                // $("#toggleside").toggleClass("change");
+                $(".wrapper, .footer").toggleClass("m-left");
+                $("#secondary-header").toggleClass("sh-left");
+                // $("#update-msg").toggleClass("sh-left");
+            });
+            $(".searchToggle").click(function () {
+                $(".nav-search").toggle()
+              })
+          
+              $('.mode-change').click(function () {
+                $(this).find('.bi').toggleClass('bi-brightness-high bi-moon');
+                $('body').toggleClass('dark-mode');
+              });
+              $('#toggle').on('click', function () {
+                $('input.mode-icon').toggleClass('checked');
+              });
+
+
+              // new for wrapper heightjs 
+                var secondaryHeader = document.getElementById("secondary-header");
+                var navbar = document.getElementById("navbar");
+                var footer = document.getElementById('footer')
+                var navbarheight = navbar.clientHeight;
+                var secondaryHeaderheight = secondaryHeader.clientHeight;
+                var footerheight = footer.clientHeight
+                $('.wrapper').css('margin-top', (secondaryHeaderheight + navbarheight + 16 + 'px'));
+                if(secondaryHeader){
+                $('.wrapper').css('min-height', 'calc(100vh - ' + (secondaryHeaderheight +  navbarheight + footerheight + 16)+ 'px)');
+                }
+
+        });
+
+
+        
+
+        
+    </script>
+</body>
+
+</html>
