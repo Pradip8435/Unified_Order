@@ -284,7 +284,10 @@
   --bg-surface-4: var(--n200);
   --bg-surface-5: var(--n800);
   --bg-surface-6: var(--n600);
+<<<<<<< HEAD
   --bg-surface-7: var(--n700);
+=======
+>>>>>>> main
 
   --bg-gradient-1: var(--cer500);
   --bg-gradient-2: var(--vir500);
@@ -361,6 +364,7 @@
   --bg-switch-2: var(--w50);
   --bg-tags: var(--ven500);
   --bg-scrollbar: var(--b600);
+<<<<<<< HEAD
   --bs-table-color: var(--n300);
   --bg-muted: var(--b100);
   --bg-pagination-active: var(--n800);
@@ -390,6 +394,10 @@
   --text-yellow-flag: #f7be11;
   --border-yellow-flag: #f7be11;
   
+=======
+  --bg-muted: var(--b100);
+  --bg-pagination-active: var(--n800);
+>>>>>>> main
 }
 
 
@@ -435,7 +443,11 @@
   --text-neutral-1: var(--b100);
   --text-neutral-2: var(--s700);
   --text-link-1: var(--t400);
+<<<<<<< HEAD
   --text-link-1-hover: var(--t300);
+=======
+  --text-link-1-hover: var(--t600);
+>>>>>>> main
   --text-link-2: var(--er400);
   --text-link-3: var(--sc500);
   --text-btn-primary: var(--w50);
@@ -493,7 +505,10 @@
   --bg-surface-4: var(--alg500);
   --bg-surface-5: var(--alg500);
   --bg-surface-6: var(--w50);
+<<<<<<< HEAD
   --bg-surface-7: var(--alg500);
+=======
+>>>>>>> main
   --bg-gradient-1: var(--cer500);
   --bg-gradient-2: var(--vir500);
   --bg-gradient-3: var(--sco500);
@@ -557,6 +572,7 @@
 
 
   --text-table-header: var(--sch500);
+<<<<<<< HEAD
   --bs-table-color: var(--acr500);
   --bg-pagination-active: var(--b600);
 
@@ -583,4 +599,8 @@
   --text-yellow-flag: #fff;
   --border-yellow-flag: #f7be11;
 
+=======
+  --bg-pagination-active: var(--b600);
+
+>>>>>>> main
 }

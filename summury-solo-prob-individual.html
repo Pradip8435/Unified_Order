@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corpository-Insight</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/introjs.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm justify-content-between custom-nav fixed-top">
+        <div class="container-fluid">
+            <div class="d-flex align-middle">
+                <div class="toggle" id="toggleside">
+                    <i class="bi bi-list"></i>
+                </div>
+                <a class="navbar-brand" routerLink="home">
+                    <img src="images/FINPOSITORY.svg" class="img-responsive" alt="BrandLogo" />
+                    <!-- <img src="images/favicon-white.svg" class="logo_icon" alt="CorpositoryBrand"> -->
+                </a>
+            </div>
+            <div class="nav-search">
+                <div style="position:relative;">
+                    <div class="input-group">
+                        <div class="btn-group">
+                            <button type="button" class="select-box" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-shop-window"></i><span class="line"></span>Company / LLP <i
+                                    class="bi bi-chevron-down"></i>
+                                <span class="line me-0"></span></button>
+                            <ul class="dropdown-menu custom-select">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-shop-window"></i>&nbsp; Company /
+                                        LLP</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i>&nbsp; Director /
+                                        Partner</a></li>
+                            </ul>
+                        </div>
+                        <input type="text" class="form-control ps-0" id="empSearch"
+                            placeholder="Search Company / LLP By Name" autocomplete="off" (click)="toggleData()">
+                        <span class="company-refresh d-none" *ngIf="isRefreshVisible"><i
+                                class="bi bi-arrow-repeat"></i></span>
+                        <button type="button" class="btn btn-primary m-0" routerLink="searchresult">
+                            <i class="bi bi-search "></i>
+                            <span class="text-hidden-mobile">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ul class="navbar-nav custom-nav-list">
+                <li class="nav-item">
+                    <a class="nav-link searchToggle">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li>
+                <li class="nav-item recently-history">
+                    <a class="nav-link fancy-button bell" id="recently_company" data-bs-toggle="offcanvas" href="#recently-history"
+                        aria-controls="offcanvasExample">
+                        <i class="bi bi-eye icon me-0"></i>
+                    </a>
+                </li>
+                <li class="nav-item toggle-mode-theme">
+                    <a id="toggle" class="nav-link fancy-button zoom toggle-mode mode-change">
+                        <input class="normal-icon mode-icon" type="checkbox">
+                        <div class="background"></div>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="" class="nav-link fancy-button zoom" data-bs-toggle="dropdown"><i
+                            class="bi bi-grid icon-left"></i>solutions <i class="bi bi-chevron-down"></i></a>
+                    <ul class="dropdown-menu solution_dropdown dropdown_animation pb-0">
+                        <div>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-teal">
+                                        <div class="card-body pt-3">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon">
+                                                        EX
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>Explore</h5>
+                                                    <p>A granular query engine that improves sales and...</p>
+                                                    <button type="button" class="btn  btn-primary">Go to
+                                                        Explore</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-teal c-mb-10">
+                                        <div class="card-body pt-3">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon">
+                                                        GST
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>GST Analyze</h5>
+                                                    <p>Know your borrower’s business better through...</p>
+                                                    <button type="button" class="btn  btn-primary">Go to GST
+                                                        Analyze</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-teal">
+                                        <div class="card-body pt-3 ">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon">
+                                                        MN
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>Monitor</h5>
+                                                    <p>A web-based tool that provides early warning signa...</p>
+                                                    <button type="button" class="btn  btn-primary">Go to
+                                                        Monitor</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-lightgray">
+                                        <div class="card-body pt-3 ">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon-one">
+                                                        RQ
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>RISQ</h5>
+                                                    <p>A tool that tracks Assets Portfolio with continuous Ris</p>
+                                                    <button type="button"
+                                                        class="btn  btn-secondary-outline">Subscribe</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-lightgray">
+                                        <div class="card-body pt-3 ">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon-one">
+                                                        VE
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>Verify</h5>
+                                                    <p>Know your Borrower better & protect the asset book from...</p>
+                                                    <button type="button"
+                                                        class="btn  btn-secondary-outline">Subscribe</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="card custom-card card-border-lightgray">
+                                        <div class="card-body pt-3 ">
+                                            <div class="product-inner-bar">
+                                                <div class="p-inner-left">
+                                                    <div class="eop-icon-one">
+                                                        NP
+                                                    </div>
+                                                </div>
+                                                <div class="p-inner-right">
+                                                    <h5>New Product</h5>
+                                                    <p>Lorem Ipsum is simply dummy text of the printing</p>
+                                                    <button type="button"
+                                                        class="btn  btn-secondary-outline">Subscribe</button>
+                                                </div>
+                                                <span id="pointer" class="shine">
+                                                    <span>New</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link fancy-button zoom" href="#" role="button" data-bs-toggle="dropdown"><i
+                            class="bi bi-person icon-left"></i>
+                        Hi,Urmi <i class="bi bi-chevron-down"></i></a>
+                    <ul class="dropdown-menu custom-dropdown dropdown_animation profile-dropdown">
+                        <div class="profile-header">
+                            <div>
+                                <div class="user-icon">
+                                    UG
+                                </div>
+                                <div class="user-info">
+                                    <span class="userName">Urmi Gajjar</span>
+                                    <span class="userMail">urmi.gajjar@corporation.com </span>
+                                </div>
+                            </div>
+                            <div>
+                                <a routerLink="UserProfile"><i class="bi bi-pencil-square"></i></a>
+                            </div>
+                        </div>
+
+                        <li><a class="dropdown-item" routerLink="companyView"><i class="bi bi-eye"></i> Companies
+                                Viewed (44)</a>
+                        </li>
+                        <li><a class="dropdown-item history-toggle" data-bs-toggle="offcanvas"
+                                href="#recently-history"><i class="bi bi-eye icon"></i> Recently Visited</a></li>
+                        <li><a class="dropdown-item" routerLink="settings"><i class="bi bi-gear"></i>
+                                <span>settings</span></a>
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-envelope"></i> <span>contact us</span></a>
+                        <li><a class="dropdown-item" routerLink="feedback"><i class="bi bi-chat-dots"></i>
+                                <span>feedback</span></a></li>
+                        <!-- <li>
+                            <a class="dropdown-item" href="#downloadfiles" data-bs-toggle="offcanvas"><i
+                                    class="bi bi-download"></i>
+                                <span>Download Files</span></a>
+                        </li> -->
+                        <li>
+                            <a class="dropdown-item mode-change"><i class="bi bi-brightness-high"></i>
+                                <span>Dark Mode</span></a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-shield-check"></i> <span>privacy
+                                    policy</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-text"></i> <span>terms and
+                                    conditions</span></a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-layers"></i> <span>about us</span></a>
+                        </li>
+                        <!-- <li><a class="dropdown-item" routerLink="404"><span>404</span></a></li>
+                        <li><a class="dropdown-item" routerLink="MyOrder"><span>My order</span></a></li>
+                        <li><a class="dropdown-item" routerLink="Mycart"><span>My Cart</span></a></li> -->
+                        <div class="dropdown-footer">
+                            <button class="btn btn-secondary-outline m-0 w-100">Sign Out</button>
+                        </div>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- sidebar -->
+    <nav class="sidebar close">
+        <div class="sidebar-inner">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <li class="nab-list">
+                    <a routerLink="/front/flags" class="nav-link fancy-button zoom fancy-button zoom active" id="nav-home-tab"
+                        data-bs-toggle="tab" role="tab">
+                        <div class="icon">
+                            <i class="bi bi-activity"></i>
+                        </div>
+                        <span class="text nav-text">Summary</span>
+                    </a>
+                </li>
+                <li class="nab-list">
+                    <a routerLink="/front/companyProfile" class="nav-link fancy-button zoom free-tab"
+                        id="nav-profile-tab" data-bs-toggle="tab" role="tab">
+                        <div class="icon">
+                            <i class="bi bi-activity"></i>
+                        </div>
+                        <span class="text">Request History</span>
+                    </a>
+                </li>   
+            </div>
+            <!-- <div class="nav nav-tabs virtual-tour-block" id="nav-tab" role="tablist">
+                <li class="nab-list">
+                    <a data-bs-toggle="modal" href="#onload" class="nav-link fancy-button zoom virtual-tour"
+                        id="nav-home-tab" data-bs-toggle="tab" role="tab">
+                        <div class="icon">
+                            <i class="bi bi-play-btn"></i>
+                        </div>
+                        <span class="text nav-text">Virtual Tour</span>
+                    </a>
+                </li>
+            </div> -->
+        </div>
+    </nav>
+    <!-- sidebar end here -->
+    <div class="scrolTopAnimation" id="secondary-header">
+        <div class="secondary-header mb-0">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="text-start">
+                        <div class="company-name">
+                            <h3>Krishtech Technologies</h3>
+                        </div>
+                        <span class="badge badge-neutral mt-3">QWERT0129Y</span>
+                    </div>
+                    <div class="text-end">
+                        <div class="btn-desktop-group">
+                            <button class="btn  btn-primary fancy-button"><i class="bi bi-plus-lg"></i> Place Request</button>
+                        </div>
+                        <!-- <button class="btn border-0 btn-secondary-outline btn-mobile m-0" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside" aria-expanded="false" onclick="myFunction()"><i
+                                class="bi bi-three-dots-vertical me-0"></i></button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper m-left">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 title-section ">
+                    <div class="title-left-content">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
+                                <path d="M7.3 6.3002H3.94C3.15593 6.3002 2.76389 6.3002 2.46441 6.45279C2.20099 6.58701 1.98681 6.80118 1.85259 7.06461C1.7 7.36409 1.7 7.75612 1.7 8.5402V13.3002M14.3 13.3002V2.9402C14.3 2.15612 14.3 1.76409 14.1474 1.46461C14.0132 1.20118 13.799 0.987009 13.5356 0.852786C13.2361 0.700195 12.8441 0.700195 12.06 0.700195H9.54C8.75593 0.700195 8.36389 0.700195 8.06441 0.852786C7.80099 0.987009 7.58681 1.20118 7.45259 1.46461C7.3 1.76409 7.3 2.15612 7.3 2.9402V13.3002M15 13.3002H1M9.75 3.5002H11.85M9.75 6.3002H11.85M9.75 9.1002H11.85" stroke="#344054" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                        </span>
+                        <h4 class="tabs-name">Summary</h4>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 co-xs-12">
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <h5>Basic Details</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="card-list-item">
+                                <li>
+                                    <div class="list-title">Name</div>
+                                    <div class="list-details">Krish Technologies</div>
+                                </li>
+                                <li>
+                                    <div class="list-title">TYPE</div>
+                                    <div class="list-details">Sole Proprietorship / Individual</div>
+                                </li>
+                            
+                                <li>
+                                    <div class="list-title">PAN</div>
+                                    <div class="list-details">QWERT0129Y</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <h5>Business Details (As per GST)</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="card-list-item">
+                                <li>
+                                    <div class="list-title">Name</div>
+                                    <div class="list-details">Krish Technologies</div>
+                                </li>
+                                <li>
+                                    <div class="list-title">DATE OF REGISTRATION</div>
+                                    <div class="list-details">01-07-2017</div>
+                                </li>
+                                <li>
+                                    <div class="list-title">ADDRESS</div>
+                                    <div class="list-details">Floor no 20, Block B Navratna Business Park, Bopal Ambli Road- Ahmedabad-380015</div>
+                                </li>
+                                <li>
+                                    <div class="list-title">TOTAL REGISTERED GSTINs</div>
+                                    <div class="list-details">4</div>
+                                </li>
+                                <li>
+                                    <div class="list-title">ACTIVE GSTINs</div>
+                                    <div class="list-details">2</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <h5>Business Details (As per GST)</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="card-list-item">
+                                <li>
+                                    <div class="list-title">EMAIL</div>
+                                    <div class="list-details"><a href="mailto:compliance@corpository.com">compliance@corpository.com</a></div>
+                                </li>
+                                <li>
+                                    <div class="list-title">PHONE NUMBER</div>
+                                    <div class="list-details">919825928950</div>
+                                </li>
+                                <li>
+                                    <div class="list-title">ADDRESS</div>
+                                    <div class="list-details">Corpository, Office No 2001 to 2020, 20th Floor, B Block, Daskroi Ahmedabad Gujarat 380058 India</div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 co-xs-12">
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <h5>ITR</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-details">No data available yet. You can place an order by clicking on place request button.</div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-secondary-outline"><i class="bi bi-plus-lg"></i> Place Request</button>
+                        </div>
+                    </div>
+
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <h5>Banking</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-details">No data available yet. You can place an order by clicking on place request button.</div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-secondary-outline"><i class="bi bi-plus-lg"></i> Place Request</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 co-xs-12">
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <h5>GST</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-details">No data available yet. You can place an order by clicking on place request button.</div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-secondary-outline"><i class="bi bi-plus-lg"></i> Place Request</button>
+                        </div>
+                    </div>
+
+                    <div class="card custom-card">
+                        <div class="card-header">
+                            <h5>Bureau</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-details">No data available yet. You can place an order by clicking on place request button.</div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-secondary-outline"><i class="bi bi-plus-lg"></i> Place Request</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <!-- profile Modal -->
+        <div class="modal custom-modal fade" id="tabs-information">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Financials</h4>
+                        <button type="button" data-bs-dismiss="modal" aria-label="Close" class="modal-close-btn"><i
+                                class="bi bi-x-lg"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>This section provides a snapshot of key financial indicators of the company and detailed information
+                            about Audited annual financial statements - P&L Account and Balance sheet for last 3 to 5 years. It
+                            also provides ability to download documents reported by the company at MCA. Corpository team has
+                            also calculated key financial ratios based on the reported financial statements.</p>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- disclamber Modal -->
+        <div class="modal custom-modal fade" id="disclaimer">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">disclaimer</h4>
+                        <button type="button" data-bs-dismiss="modal" aria-label="Close" class="modal-close-btn"><i
+                                class="bi bi-x-lg"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>All Financial details are available from financial year 2013-14 onwards.</p>
+                        <p>Some particulars have not been shown to maintain consistency of format.</p>
+                        <p>
+                            <strong>Standalone/Consolidated Balance Sheet</strong>
+                        </p>
+                        <p>Trade Receivables: Current Trade Receivables amount is reflected in "Trade Receivables" under Current
+                            Assets section. Non Current Trade Receivables amount is included in "Other Non Current Assets" under
+                            Non Current Assets section.</p>
+                        <p>Trade Payables: Current Trade Payables amount is reflected in "Trade Payables" under Current
+                            Liabilities section. Non Current Trade Payables amount is included in "Other Non Current
+                            Liabilities" under Non Current Liabilities section.</p>
+                        <p>Deferred Government Grants: Deferred Government Grants includes amount of Current and Non Current
+                            Deferred Government Grants. Due to this, Total Non Current Liability will be reduced by the amount
+                            of "Non Current Deferred Government Grants” and Total Current Liability will be reduced by the
+                            amount of "Current Deferred Government Grants" to maintain consistency of format.</p>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer m-left text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4"><span class="">© 2023 All Rights Reserved</span></div>
+                <div class="col-lg-4 col-md-4 col-sm-4 ">
+                    <ul class="nav justify-content-center">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                      </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <ul class="nav social-media justify-content-end">
+                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                        <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                      </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <!--=========== recently history======== -->
+    <div class="offcanvas custom-offcanvas offcanvas-end" tabindex="-1" id="recently-history"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Recently Visited</h5>
+            <button type="button" class="border-0 bg-transparent" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                    class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="offcanvas-body">
+            <nav class="custom-tab-fill mt-0">
+                <div class="nav nav-tabs custom-tabs-group " id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-Snapshot-tab" data-bs-toggle="tab"
+                        data-bs-target="#Snapshot" type="button" role="tab" aria-controls="nav-Snapshot"
+                        aria-selected="true">Company/LLP</button>
+                    <button class="nav-link" id="nav-balancesheet-tab" data-bs-toggle="tab"
+                        data-bs-target="#balancesheet" type="button" role="tab" aria-controls="nav-balancesheet"
+                        aria-selected="false">Director/Partner</button>
+                </div>
+            </nav>
+            <ul class="ntf-group recently-history-group">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="Snapshot" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="simple-list-group">
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Tata Capitals</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">3 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Hubtown Limited</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Saltlake, WEST
+                                            BENGAL</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">3 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">national payment corporation of india</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            Maharashtra</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">17 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">national payment corporation of india</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            Maharashtra</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">17 hours ago</span>
+                                </div>
+                            </div>
+
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Virtusa Consulting Services Private
+                                        Limited</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Tiruporur, Tamil
+                                            Nadu</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">18 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Houbee Ching Organic Producer Company
+                                        Limited</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Nil, MANIPUR</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">3 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Bluevine Technologies Private Limited</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Ahmedabad,
+                                            GUJARAT</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">3 minutes ago</span>
+                                </div>
+                            </div>
+
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Ankur Advisory Services LlP</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">3 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Martin And Harris Laboratories Limited</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">5 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Weight Farmer Producer Company Limited</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">approx 1 days ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Hubtown Limited</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">5 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Bluevine Technologies Private Limited</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">5 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/companyProfile">Tata Sons Private Limited
+
+                                    </a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">5 minutes ago</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="balancesheet" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="simple-list-group">
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/director">Vyomesh Mahipatray Shah</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">22 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/director">Harsh Hemang Panchal</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Ahmedabad,
+                                            Gujrat</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">approx 21 days ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/director">Pawanjot Singh</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>HARYANA, Haryana</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">approx 21 days ago</span>
+                                </div>
+                            </div>
+
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/director">Arpit jain</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">22 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/director">Pallav Purohit</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">22 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/director">Pallav Purohit</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">22 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/director">Hemant Mahipatray Shah</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">22 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="simple-list-item">
+                                <div class="media-body">
+                                    <a routerLink="/front/director">Vyomesh Mahipatray Shah</a>
+                                    <div class="simple-list-sub-text">
+                                        <span><i class="bi bi-geo-alt"></i></span> &nbsp; <span>Mumbai,
+                                            MAHARASHTRA</span>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                                    <span class="time">22 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="modal custom-modal fade" id="tourGuid" data-bs-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- <div class="text-right">
+                        <button type="button" data-bs-dismiss="modal" aria-label="Close" class="modal-close-btn"><i class="bi bi-x-lg"></i></button>
+                    </div> -->
+                    <p>This website is designed to provide an optimal experience on mobile devices also. Enjoy seamless navigation and functionality on all devices.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js"></script>
+    <script>
+           
+
+        // if (window.matchMedia("(min-width: 768px)").matches) {
+        //     var script = document.createElement('script');
+        //     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.2.0/intro.min.js';
+        //     document.head.appendChild(script);
+        // }
+
+    //     window.addEventListener('load', function () {
+    //         // introJs().setOption("dontShowAgain", true).start(function(){
+
+    //         // });
+    //         introJs().setOptions({
+    //             tooltipClass: 'customTooltip',
+    //             dontShowAgain: false
+    //         }).start()
+
+
+            
+
+    //   })
+        var intro = introJs();
+        intro.onbeforeexit(function () {
+            $("#tourGuid").modal('show')
+        })
+        // Set up the steps
+        intro.setOptions({
+            tooltipClass: 'customTooltip',
+            dontShowAgain: false,
+            exitOnOverlayClick: false,
+            showStepNumbers: false
+        });
+        // Start the introduction
+        intro.start();
+
+        $(document).ready(function () {
+                     
+            $('.wrapper').css('margin-top', ($('#secondary-header').height() + 60 + 'px'));
+
+            var secondaryHeader = document.getElementById('secondary-header');
+            if (secondaryHeader) {
+                var secondaryHeaderHeight = secondaryHeader.clientHeight; // Get the height of secondary-header
+
+                $('.wrapper').css('min-height', 'calc(90.8vh - ' + secondaryHeaderHeight + 'px)');
+            } else {
+                $('.wrapper').css('min-height', '100vh') // Handle the case where the element is not found (e.g., show an error message or use a default height)
+            };
+
+            $("#toggleside").click(function () {
+                $(".sidebar").toggleClass("close");
+                // $("#toggleside").toggleClass("change");
+                $(".wrapper, .footer").toggleClass("m-left");
+                $("#secondary-header").toggleClass("sh-left");
+                // $("#update-msg").toggleClass("sh-left");
+            });
+            $(".searchToggle").click(function () {
+                $(".nav-search").toggle()
+              })
+          
+              $('.mode-change').click(function () {
+                $(this).find('.bi').toggleClass('bi-brightness-high bi-moon');
+                $('body').toggleClass('dark-mode');
+              });
+              $('#toggle').on('click', function () {
+                $('input.mode-icon').toggleClass('checked');
+              });
+        });
+
+        
+    </script>
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // function toastOpen() {
 //   var toastElList = [].slice.call(document.querySelectorAll('.toast'))
 //   var toastList = toastElList.map(function (toastEl) {
@@ -54,10 +55,73 @@
 //   abc();
 //   xyz();
 // });
+=======
+ function toastOpen() {
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function(toastEl) {
+      return new bootstrap.Toast(toastEl)
+    })
+    toastList.forEach(toast => toast.show()) 
+
+  }
+
+// Tooltip js
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+
+  $(document).ready(function ($) {
+    // for secondary-sec btn
+    var alterClass = function () {
+      var ww = document.body.clientWidth;
+      if (ww < 991) {
+        $('.btn-desktop-group').addClass('dropdown-menu');
+      } else if (ww >= 991) {
+        $('.btn-desktop-group').removeClass('dropdown-menu');
+      };
+    };
+
+    // for title-sec btn
+    var abc = function () {
+      var xy = document.body.clientWidth;
+      if (xy < 767) {
+        $('.title-sec-btn-group').addClass('dropdown-menu');
+      } else if (xy >= 767) {
+        $('.title-sec-btn-group').removeClass('dropdown-menu');
+      };
+    };
+    var xyz = function () {
+      var collapse = document.body.clientWidth;
+      if (collapse < 767) {
+        $('.collapse-head').attr('data-bs-toggle','collapse');
+        $('.collapse-head').addClass('collaspe-header');
+        $('.collapse-body').addClass('collapse');
+      } else if (collapse >= 767) {
+        $('.collapse-head').removeAttr('data-bs-toggle','collapse');
+        $('.collapse-head').removeClass('collaspe-header');
+        $('.collapse-body').removeClass('collapse');
+      };
+    };
+
+    $(window).resize(function () {
+      alterClass();
+      abc();
+      xyz();
+    });
+
+    //Fire it when the page first loads:
+    alterClass();
+    abc();
+    xyz();
+  });
+>>>>>>> main
 
 
 
 // auditors js  for mobile
+<<<<<<< HEAD
 function openCaroRemark() {
   $('.caro-remark').show()
   $('.parent-div').hide()
@@ -80,10 +144,43 @@ window.onscroll = function () {
   prevScrollpos = currentScrollPos;
 }
 
+=======
+  function openCaroRemark(){
+    $('.caro-remark').show()
+     $('.parent-div').hide()
+  }
+
+// // page scroll top secondary header hide js
+// var prevScrollpos = window.pageYOffset;
+// window.onscroll = function () {
+
+//   var currentScrollPos = window.pageYOffset;
+//   if (currentScrollPos > 100) {
+//     document.getElementById("secondary-header").style.top = "-200px";
+//   } else {
+//     document.getElementById("secondary-header").style.top = "91px";
+
+//   }
+//   prevScrollpos = currentScrollPos;
+// }
+
+// sidebar close click nav-link js mobile view
+
+$(document).ready(function() {
+  var width = $(window).width();
+if (width <= 991) {
+  $(".nab-list").click(function(){
+   $('.sidebar').addClass('close');
+  });
+}
+ });
+ 
+>>>>>>> main
 
 
 //  ticker
 var $ticker = $('[data-ticker="list"]'),
+<<<<<<< HEAD
   tickerItem = '[data-ticker="item"]'
 itemCount = $(tickerItem).length,
   viewportWidth = 0;
@@ -117,6 +214,41 @@ function initializeTicker() {
   }).on('mouseout', function () {
     animateTicker();
   });
+=======
+    tickerItem = '[data-ticker="item"]'
+    itemCount = $(tickerItem).length,
+    viewportWidth = 0;
+
+function setupViewport(){
+    $ticker.find(tickerItem).clone().prependTo('[data-ticker="list"]');
+    
+    for (i = 0; i < itemCount; i ++){
+        var itemWidth = $(tickerItem).eq(i).outerWidth();
+        viewportWidth = viewportWidth + itemWidth;
+    }
+    
+    $ticker.css('width', viewportWidth);
+}
+
+function animateTicker(){
+    $ticker.animate({
+        marginLeft: -viewportWidth
+      }, 20000, "linear", function() {
+        $ticker.css('margin-left', '0');
+        animateTicker();
+      });
+}
+
+function initializeTicker(){
+    setupViewport();
+    animateTicker();
+    
+    $ticker.on('mouseenter', function(){
+        $(this).stop(true);
+    }).on('mouseout', function(){
+        animateTicker();
+    });
+>>>>>>> main
 }
 
 initializeTicker();
@@ -173,6 +305,7 @@ $(document).ready(function () {
     return true;
   }
 
+<<<<<<< HEAD
 });
 
 // Tooltip js
@@ -180,3 +313,13 @@ var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
+=======
+
+  // var dem = $(".sidebar.close").width();
+  // $(".introjs-fixedTooltip").css("width", dem);
+
+
+});
+
+
+>>>>>>> main
